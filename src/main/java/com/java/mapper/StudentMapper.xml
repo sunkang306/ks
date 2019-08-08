@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.java.mapper.StudentMapper">
+    <select id="findAll" resultType="com.java.entity.Student">
+        select * from student
+    </select>
+    <select id="findOne" resultType="com.java.entity.Student">
+
+          select * from student where sid=#{sid}
+    </select>
+    <update id="updateStu">
+ UPDATE
+  `student`
+SET
+  `sid` = #{sid},
+  `gender` = #{gender},
+  `class_id` = #{class_id},
+  `sname` = #{sname}
+WHERE `sid` = #{sid}
+
+    </update>
+
+    <delete id="deleteStu">
+DELETE
+FROM
+  student
+WHERE
+`sid` = #{sid}
+
+</delete>
+    <insert id="addStu">
+INSERT INTO
+      student
+(`sid`, `gender`, `class_id`, `sname`)
+VALUES
+  (#{sid}, #{gender},#{class_id}, #{sname})
+
+    </insert>
+
+</mapper>
